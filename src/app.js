@@ -31,7 +31,7 @@ mongoose
 	})
 
 //Middleware session
-app.use(cookieParser())
+app.use(cookieParser("sÑcret925501135"))
 app.use(session({
 	store: MongoStore.create({
 		mongoUrl: 'mongodb+srv://markutz:xYR20w6UyuRGtumz@cluster0.8r0sqah.mongodb.net/ecommerce?retryWrites=true&w=majority',
