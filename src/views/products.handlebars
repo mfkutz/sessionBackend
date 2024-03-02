@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav class="nav_cart">
+        <h1 class="title_products">Lista de productos</h1>
+
+        <button id="newCartButton" class="new_Cart_btn">Crear nuevo carrito</button>
+
+        <div>
+            <p class="title_select">Seleccione un carrito</p>
+            <select name="cartSelect" id="cartSelect">
+                {{#each carts}}
+                <option value="{{this._id}}" {{#ifCond this._id '===' selectedCartId}}selected{{/ifCond}}>{{this._id}}
+                </option>
+                {{/each}}
+            </select>
+        </div>
+
+        <span class="span_cart">
+            <a href="#" id="cartlink">
+
+                <div class="icon_world">
+                    🌍
+                </div>
+                CART
+            </a>
+        </span>
+    </nav>
+    <main class="main_section">
+        <section class="menu_lat">
+            <h1>Bienvenid@ {{ user.first_name }}! </h1>
+            <div class="box_image">
+                <img src="/images/user.jpg" alt="" class="img_user">
+            </div>
+            <p>Nombre: {{ user.first_name }}</p>
+            <p>Apellido: {{ user.last_name }}</p>
+            <p>Correo electrónico: {{ user.email }}</p>
+            <p>Rol:
+                {{#if user.isAdmin}}
+                Admin
+                {{else}}
+                User
+                {{/if}}
+            </p>
+            <button id="logout_btn" class="logout_btn">Logout</button>
+        </section>
+
+        <section class="product_container">
+            {{#each simplifiedProducts }}
+            <div class="box_and_btn">
+
+                <ul class="product_box">
+                    <li class="list_box">
+                        <h2>Product: {{title}} </h2>
+                        <p>Desc: {{description}}</p>
+                        <p>price: {{price}}</p>
+                        <p>Code: {{code}}</p>
+                        <p>Stock: {{stock}}</p>
+                        <p>category: {{category}}</p>
+                    </li>
+                </ul>
+
+                <div class="box_btn">
+                    <button class="btn_cart" productId="{{id}}">Add to cart</button>
+                </div>
+            </div>
+            {{/each}}
+
+        </section>
+    </main>
+
+    <div class="pagination_container">
+        {{#if hasPrevPage}}
+        <a href="/products?page={{prevPage}}" class="btn_prev">◀</a>
+        {{/if}}
+        <div>
+            {{page}}
+        </div>
+
+        {{#if hasNextPage}}
+        <a href="/products?page={{nextPage}}" class="btn_next">▶</a>
+        {{/if}}
+
+    </div>
+    <div class="total_pages">Total pages: {{totalPages}}</div>
+
+    <script src="/js/addProduct.js"></script>
+    <script src="/js/logout.js"></script>
+</body>
+
+</html>

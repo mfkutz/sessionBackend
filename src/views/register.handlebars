@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+
+<body>
+    <main class="main_session">
+        <div class="login_box">
+            <h1 class="title_login">Register</h1>
+            <form action="/api/sessions/register" method="POST" class="form_session">
+                <div class="section_box">
+                    <input type="text" id="first_name" name="first_name" required placeholder="First name">
+                </div>
+
+                <div class="section_box">
+                    <input type="text" id="last_name" name="last_name" required placeholder="Last name">
+                </div>
+                <div class="section_box">
+                    <input type="text" id="age" name="age" required placeholder="Age">
+                </div>
+                <div class="section_box">
+                    <input type="text" id="email" name="email" required placeholder="Email">
+                </div>
+                <div class="section_box">
+                    <input type="password" id="password" name="password" required placeholder="Password">
+                </div>
+                <div class="section_box">
+                    <input type="password" id="confirm_password" name="confirm_password" required
+                        placeholder="Confirm password">
+                </div>
+                <button type="submit">Register</button>
+                <p class="text_box_account">Already have on account? <a href="/" class="register_string">Login</a></p>
+            </form>
+
+        </div>
+    </main>
+</body>
+<script src="/js/register.js"></script>
+
+</html>
